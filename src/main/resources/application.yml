@@ -17,15 +17,17 @@ spring:
     hibernate:
       ddl-auto: update
 
+
 server:
   port: 8094
 
 logging:
   level:
     org:
-      thymeleaf: INFO
-      hibernate: TRACE
-      type:
-        descriptor:
-          sql:
-            BasicBinder: TRACE
+      thymeleaf: WARN
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

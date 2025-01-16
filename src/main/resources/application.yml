@@ -24,7 +24,7 @@ server:
 logging:
   level:
     org:
-      thymeleaf: WARN
+      thymeleaf: DEBUG
       hibernate:
         SQL: DEBUG
         type:

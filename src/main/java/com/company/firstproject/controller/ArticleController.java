@@ -1,8 +1,12 @@
 package com.company.firstproject.controller;
 
 import com.company.firstproject.dto.ArticleForm;
+import com.company.firstproject.dto.CommentDto;
 import com.company.firstproject.entity.Article;
+import com.company.firstproject.entity.Comment;
 import com.company.firstproject.repository.ArticleRepository;
+import com.company.firstproject.repository.CommentRepository;
+import com.company.firstproject.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -20,6 +24,7 @@ import java.util.List;
 public class ArticleController {
 
     private final ArticleRepository articleRepository;
+    private final CommentService commentService;
 
     @GetMapping("/articles/new")
     public String newArticleForm(){
@@ -44,9 +49,11 @@ public class ArticleController {
         log.info("id = " + id);  //id를 잘 받았는지 확인하는 로그 찍기
         //1. id를 조회해 데이터 가져오기
         Article articleEntity = articleRepository.findById(id).orElse(null);
-        log.info(articleEntity.toString());
+        List<CommentDto> commentDtos = commentService.comments(id);
+
         //2. 모델에 데이터 등록하기
         model.addAttribute("article", articleEntity);
+        model.addAttribute("commentDtos", commentDtos);
         //3. 뷰 페이지 반환하기
         return "articles/show";
     }

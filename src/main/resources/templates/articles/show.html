@@ -10,30 +10,32 @@
 
 <!-- 헤더 템플릿 포함 -->
 <div th:insert="~{layouts/header :: header}"></div>
-
 <!-- 테이블 -->
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">Id</th>
-    <th scope="col">Title</th>
-    <th scope="col">Content</th>
-  </tr>
-  </thead>
-  <tbody>
-<!--  <tr th:each="article : ${articles}">-->
-  <tr>
-    <th th:text="${article.id}"></th>
-    <th th:text="${article.title}"></th>
-    <th th:text="${article.content}"></th>
-  </tr>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+    </tr>
+    </thead>
+    <tbody>
+  <!--  <tr th:each="article : ${articles}">-->
+    <tr>
+      <th th:text="${article.id}"></th>
+      <th th:text="${article.title}"></th>
+      <th th:text="${article.content}"></th>
+    </tr>
+    </tbody>
+  </table>
 
-<!--<a th:href="@{'/articles/' + ${article.id} + '/edit'}">Edit</a>-->
-<a th:href="@{/articles/{id}/edit(id=${article.id})}" class="btn btn-primary">Edit</a>
-<a th:href="@{/articles/{id}/delete(id=${article.id})}" class="btn btn-danger">Delete</a>
-<a href="/articles">Go to Article List</a>
+  <!--<a th:href="@{'/articles/' + ${article.id} + '/edit'}">Edit</a>-->
+  <a th:href="@{/articles/{id}/edit(id=${article.id})}" class="btn btn-primary">Edit</a>
+  <a th:href="@{/articles/{id}/delete(id=${article.id})}" class="btn btn-danger">Delete</a>
+  <a href="/articles">Go to Article List</a>
+
+<!--상세 페이지에 댓글 뷰 파일 삽입-->
+<div th:insert="~{comments/_comments :: _comments}"></div>
 
 <!-- 푸터 템플릿 포함 -->
 <div th:insert="~{layouts/footer :: footer}"></div>

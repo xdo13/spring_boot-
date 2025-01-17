@@ -27,7 +27,7 @@
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-            const commentCreateBtn = document.querySelector("#comment-create-btn");
+             const commentCreateBtn = document.querySelector("#comment-create-btn");
             if (commentCreateBtn) {
                 commentCreateBtn.addEventListener("click", function() {
                     const comment = {
@@ -35,6 +35,7 @@
                         body: document.querySelector("#new-comment-body").value,
                         articleId: document.querySelector("#new-comment-article-id").value
                     };
+                    //
                     // 댓글 객체 출력
                     console.log(comment);
                     // fetch() - 비동기 통신을 위한 API
@@ -57,7 +58,7 @@
             } else {
                 console.error("댓글 생성 버튼이 존재하지 않습니다.");
             }
-        });
+            });
 
         </script>
     </div>
